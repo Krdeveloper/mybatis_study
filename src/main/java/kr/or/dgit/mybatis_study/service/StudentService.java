@@ -37,5 +37,13 @@ public class StudentService {
 		return res;
 	}
 	
+	//selectStudentByNo
+	public Student selectStudentByNo(int studNo){
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		return studentDao.selectStudentByNo(studNo);
+		
+	}
+	
 	
 }
