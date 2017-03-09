@@ -16,6 +16,6 @@
 	</environments>
 	<mappers>
 	<!-- kr/or/dgit/mybatis_study/mapper/StudentMapper -->
-		<mapper resource="kr/or/dgit/mybatis_study/mapper/StudentMapper" />
+		<mapper resource="kr/or/dgit/mybatis_study/mappers/StudentMapper.xml" />
 	</mappers>
 </configuration>
