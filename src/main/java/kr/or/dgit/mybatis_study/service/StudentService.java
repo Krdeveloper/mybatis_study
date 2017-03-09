@@ -29,5 +29,13 @@ public class StudentService {
 		
 	}
 	
+	public int insertStudent(Student student){
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		int res = studentDao.insertStudent(student);//1이면 추가 된거고 0이면 추가 안된거
+		sqlSession.commit();//commit해야 들어감
+		return res;
+	}
+	
 	
 }
