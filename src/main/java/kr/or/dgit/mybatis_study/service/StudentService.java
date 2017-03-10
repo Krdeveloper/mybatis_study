@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import kr.or.dgit.mybatis_study.dao.StudentDao;
+import kr.or.dgit.mybatis_study.dao.StudentMapper;
 import kr.or.dgit.mybatis_study.dto.Student;
 import kr.or.dgit.mybatis_study.util.MybatisSqlSessionFactory;
 
@@ -23,7 +23,7 @@ public class StudentService {
 	
 	public List<Student> selectStudentByAll(){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
-		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 		//sqlSession.close();
 		return studentDao.selectStudentByAll();
 		
@@ -31,7 +31,7 @@ public class StudentService {
 	
 	public int insertStudent(Student student){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
-		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 		int res = studentDao.insertStudent(student);//1이면 추가 된거고 0이면 추가 안된거
 		sqlSession.commit();//commit해야 들어감
 		return res;
@@ -39,7 +39,7 @@ public class StudentService {
 	public int insertStudentWithPhone(Student student){
 		int res = -1;
 		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){
-			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 			res = studentDao.insertStudentWithPhone(student);
 			sqlSession.commit();			
 		}catch(Exception e){

@@ -68,7 +68,7 @@ public class StudentDaoTest {
 	}*/
 	@Test
 	public void testInsertStudentWithPhone() {
-		Student student = new Student(6, "이교민", "lgm@test.co.kr", new Date(), new PhoneNumber("010-1234-1234"));
+		Student student = new Student(7, "이교민", "lgm@test.co.kr", new Date(), new PhoneNumber("010-1234-1234"));
 		int res = studentService.insertStudentWithPhone(student);		
 		Assert.assertEquals(1, res);
 	}
