@@ -7,8 +7,17 @@ public class Student {
 	private String name;
 	private String email;
 	private Date dob;
+	private PhoneNumber phone;
 	
 	
+	public Student(int studId, String name, String email, Date dob, PhoneNumber phone) {
+		super();
+		this.studId = studId;
+		this.name = name;
+		this.email = email;
+		this.dob = dob;
+		this.phone = phone;
+	}
 	public Student(int studId, String name, String email, Date dob) {
 		super();
 		this.studId = studId;
@@ -44,9 +53,16 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
+	
+	public PhoneNumber getPhone() {
+		return phone;
+	}
+	public void setPhone(PhoneNumber phone) {
+		this.phone = phone;
+	}
 	@Override
 	public String toString() {
-		return String.format("%s %s %s %s", studId, name, email, dob);
+		return String.format("%s %s %s %s %s", studId, name, email, dob, phone);
 	}
 	
 	

@@ -36,14 +36,40 @@ public class StudentService {
 		sqlSession.commit();//commit해야 들어감
 		return res;
 	}
+	public int insertStudentWithPhone(Student student){
+		int res = -1;
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			res = studentDao.insertStudentWithPhone(student);
+			sqlSession.commit();			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return res;
+	}
 	
-	//selectStudentByNo
+	/*//selectStudentByNo
 	public Student selectStudentByNo(int studNo){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
 		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
 		return studentDao.selectStudentByNo(studNo);
 		
+	}*/
+	
+	/*public int updateStudent(Student student){
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		int res = studentDao.updateStudent(student);
+		sqlSession.commit();
+		return res;
 	}
+	public int deleteStudentByNo(int studNo){
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		int res = studentDao.deleteStudentByNo(studNo);
+		sqlSession.commit();
+		return res;
+	}*/
 	
 	
 }
